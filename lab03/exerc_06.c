@@ -1,3 +1,4 @@
+//Guilherme Carvalho Torres 11202021966
 #include <stdio.h>
 
 #define MAX_CONJ 100
