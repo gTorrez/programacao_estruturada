@@ -23,7 +23,8 @@ int main(){
     }
 
     for(i=0; i<n; i++)
-        printf("entrada: %d, conteudo: %c, endereco: %d\n", i, vetor[i], &vetor[i]);
+        printf("entrada: %d, conteudo: %c, endereco: %p\n", i, vetor[i], &vetor[i]);
 
+    free(vetor);
     return 0;
 }
