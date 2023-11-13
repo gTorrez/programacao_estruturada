@@ -3,7 +3,7 @@
 
 
 int** cartesiano(int v1[], int n1, int v2[], int n2){
-    int i, j, k, l, n_linhas, n_colunas;
+    int i, j, k, n_linhas, n_colunas;
     int** produto;
 
     n_linhas = 6;
@@ -14,12 +14,12 @@ int** cartesiano(int v1[], int n1, int v2[], int n2){
         produto[i] = malloc(n_colunas * sizeof(int));
 
     k = 0;
-    for(i=0; i<n_linhas; i++){  
-        produto[i][j] = v1[i];
-
-        for(j=0; j<n_colunas; j++)
-            produto[i][j] = v2[j];
-    
+    for(i=0; i<n1; i++){  
+        for(j=0; j<n2; j++){
+            produto[k][0] = v1[i];
+            produto[k][1] = v2[j];
+            k += 1;
+        }
     }
 
     return produto;  
