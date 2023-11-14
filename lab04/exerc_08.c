@@ -6,7 +6,7 @@ int** cartesiano(int v1[], int n1, int v2[], int n2){
     int i, j, k, n_linhas, n_colunas;
     int** produto;
 
-    n_linhas = 6;
+    n_linhas = n1*n2;
     n_colunas = 2;
     produto = malloc(n_linhas * sizeof(int*));
 
@@ -56,12 +56,19 @@ int main(){
 
     res = cartesiano(vetor_1, m, vetor_2, n);
 
+    printf("[");
     for(i=0; i<n*m; i++){
-        for(j=0; j<2; j++)
-            printf("%d ", res[i][j]);
-        printf("\n");
+        printf("(%d, %d)", res[i][0], res[i][1]);
     }
+    printf("]");
     printf("\n");
+
+    free(vetor_1);
+    free(vetor_2);
+    
+    for(i=0; i<m*n; i++)
+        free(res[i]);
+    free(res);
 
     return 0;
 }
