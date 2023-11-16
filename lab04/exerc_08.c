@@ -41,7 +41,7 @@ int* le_array(int len){
 
 
 int main(){
-    int i, j, m, n;
+    int i, m, n;
     int* vetor_1;
     int* vetor_2;
     int** res;

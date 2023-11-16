@@ -1,12 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
+
+int str_len(char *s){
+    int len;
+
+    len = 0;
+    while(s[len] != '\0')
+      len += 1;
+  
+    return len;
+}
 
 char* revert(char* s){
     int i, j, len_s;
     char* output;
 
-    len_s = strlen(s);
+    len_s = str_len(s);
     output = malloc(len_s * sizeof(char));
 
     j = 0;
@@ -19,31 +29,33 @@ char* revert(char* s){
 }
 
 char* le_array(){
-    int len;
-    char* input;
+  int len;
+  char* input;
 
-    printf("digite tamanho da string: ");
-    scanf("%d", &len);
-    getchar();
+  printf("digite tamanho da string: ");
+  scanf("%d", &len);
+  getchar();
 
-    input = malloc(len * sizeof(char));
-    printf("string: ");
-    fgets(input, len, stdin);
-    
+  input = malloc(len * sizeof(char));
+  printf("string: ");
+  fgets(input, len, stdin);
+  
 
-    return input;
+  return input;
 }
 
 
-int main(){ 
-    int i;
+int main(){
+    int i, len_a;
     char* a;
     char* a_reverted;
 
     a = le_array();
     a_reverted = revert(a);
 
-    for(i=0; i<strlen(a); i++){
+    len_a = str_len(a);
+
+    for(i=0; i<len_a; i++){
       printf("%c", a_reverted[i]);       
     }
     printf("\n");

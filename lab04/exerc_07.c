@@ -3,12 +3,23 @@
 #include <string.h>
 
 
+int str_len(char *s){
+    int len;
+
+    len = 0;
+    while(s[len] != '\0')
+      len += 1;
+  
+    return len;
+}
+
+
 char* str_cat(char* a, char* b){
     int i, j, len_a, len_b;
     char* output;
 
-    len_a = strlen(a);
-    len_b = strlen(b);
+    len_a = str_len(a);
+    len_b = str_len(b);
 
     output = malloc((len_a + len_b) * sizeof(char));
 
@@ -43,7 +54,7 @@ char* le_array(){
 
 
 int main(){
-    int i;
+    int i, len_a, len_b;
     char* a; 
     char* b; 
     char* res;
@@ -51,10 +62,13 @@ int main(){
     a = le_array();
     b = le_array();
 
+    len_a = str_len(a);
+    len_b = str_len(b);
+
     res = str_cat(a, b);
 
     printf("\nResultado: ");
-    for(i=0; i<(strlen(a)+strlen(b)); i++)
+    for(i=0; i<(len_a+len_b); i++)
         printf("%c", res[i]);
 
     printf("\n");
