@@ -12,23 +12,21 @@ int str_len(char *s){
 }
 
 void inverte(char word[], int inicio, int final){
-    if(inicio >= final){
-        printf("%s", word);
+    if(inicio > final){
         return;
     }
     else{
         printf("%c", word[final]);
-        return inverte(word, inicio+1, final-1);
+        return inverte(word, inicio, final-1);
     }
-
 }
 
 int main(){
     int len;
-    char string[50] = "corinthians";
+    char string[50];
 
-    //printf("insira uma string: ");
-    //scanf("%s", &string);
+    printf("insira uma string: ");
+    scanf("%s", &string);
 
     len = str_len(string);
 
