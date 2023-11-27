@@ -19,11 +19,14 @@ int main(){
 
     vetor = malloc(len * sizeof(int));
 
+    printf("digite os elementos: ");
     for(i=0; i<len; i++)
         scanf("%d", &vetor[i]);
 
     res = soma(vetor, len);
     printf("soma = %d\n", res);
+
+    free(vetor);
 
     return 0;
 }

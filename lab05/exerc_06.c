@@ -3,16 +3,17 @@
 
 void collatz(int num){
     if(num == 1){
+        printf("%d", num);
         return;
     }
 
     else if(num % 2 == 0){
-        printf("%d ", num/2);
+        printf("%d ", num);
         return(collatz(num/2));
     }
 
     else{
-        printf("%d ", (3*num)+1);
+        printf("%d ", num);
         return(collatz((3*num)+1));
     }
 }
@@ -21,7 +22,9 @@ void collatz(int num){
 int main(){
     int input;
 
+    printf("Digite um numero positivo para gerar a sequencia de collatz: ");
     scanf("%d", &input);
+
     collatz(input);
 
     return 0;

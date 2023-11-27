@@ -17,8 +17,13 @@ int hanoi(int inicio, int aux, int final, int qtd){
 
 int main(){
     int qtd_movs;
-    qtd_movs = hanoi(0, 1, 2, 5);
+    int n;
 
+    printf("Digite a quantidade de discos: ");
+    scanf("%d", &n);
+
+    qtd_movs = hanoi(0, 1, 2, n);
+    
     printf("%d", qtd_movs);
     return 0;
 }
