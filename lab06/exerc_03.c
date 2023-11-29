@@ -32,19 +32,30 @@ void imprime(Lista A){
 }
 
 
-void tira_dai(Lista A, int x){
+Lista tira_dai(Lista A, int x){
     Lista atual, anterior;
+
+    anterior = criar_lista();
+    atual = A;
+
+    if(atual->dado == x){
+        A = atual->prox;
+        free(atual);
+        return A;
+    }
 
     for (atual=A; atual!=NULL; atual=atual->prox){
         if(atual->dado == x){
             anterior->prox = atual->prox;
             free(atual);
 
-            return;
+            break;
         }
 
         anterior = atual;
     }
+
+    return A;
 }
 
 
@@ -64,6 +75,7 @@ void destruir_lista(Lista A){
 int main(){
     Lista A;
 
+    A = criar_lista();
 
     A = adicionar_elemento(A, 0);   
     A = adicionar_elemento(A, 1);
@@ -76,12 +88,12 @@ int main(){
 
     imprime(A);
 
-    tira_dai(A, 3);
+    A = tira_dai(A, 7);
 
     printf("\n");
     imprime(A);
 
-    destruir_lista9(A);
+    destruir_lista(A);
 
     return 0;
 }

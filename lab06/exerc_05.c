@@ -34,17 +34,19 @@ void imprime(Lista A){
 
 Lista tira_dai(Lista A, int x){
     Lista atual;
-
     atual = A;
+
+    if(A == NULL)
+        return A;
+    
 
     if(atual->dado == x){
         A = A->prox;
         free(atual);
-
-        return A;
+        return tira_dai(A, x);
     }
 
-    A->prox = tira_dai(atual->prox, x);
+    A->prox = tira_dai(A->prox, x);
     return A;
 }
 
@@ -65,23 +67,28 @@ void destruir_lista(Lista A){
 
 int main(){
     Lista A;
+    int rmv_num = 7;
 
     A = criar_lista();
 
     A = adicionar_elemento(A, 0);   
-    A = adicionar_elemento(A, 1);
-    A = adicionar_elemento(A, 2);
-    A = adicionar_elemento(A, 3);
-    A = adicionar_elemento(A, 4);   
-    A = adicionar_elemento(A, 5);
-    A = adicionar_elemento(A, 6);
-    A = adicionar_elemento(A, 7);
+    A = adicionar_elemento(A, rmv_num);   
+    A = adicionar_elemento(A, 1);   
+    A = adicionar_elemento(A, 9);   
+    A = adicionar_elemento(A, rmv_num);   
+    A = adicionar_elemento(A, rmv_num);   
+    A = adicionar_elemento(A, 1);   
+    A = adicionar_elemento(A, rmv_num);   
+    
 
+    printf("Lista original: ");
     imprime(A);
 
-    tira_dai(A, 3);
+    A = tira_dai(A, rmv_num);
    
     printf("\n");
+    
+    printf("Lista removendo %d: ", rmv_num);
     imprime(A);
 
     destruir_lista(A);
