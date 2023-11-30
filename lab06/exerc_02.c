@@ -1,3 +1,4 @@
+//Guilherme Carvalho Torres 11202021966
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -32,14 +33,14 @@ void imprime(Lista A){
 }
 
 
-int busca(Lista A, int x){
+Lista busca(Lista A, int x){
     Lista atual;
-    for (atual=A; atual!=NULL; atual=atual->prox)
+
+    for(atual=A; atual!=NULL; atual=atual->prox)
         if(atual->dado == x)
-            return &(atual->dado);
+            return atual;
     
     return NULL;
-
 }
 
 
@@ -57,8 +58,10 @@ void destruir_lista(Lista A){
 
 
 int main(){
-    Lista A;
-    int pt;
+    Lista A, pt;
+
+    A = criar_lista();
+    pt = criar_lista();
 
     A = adicionar_elemento(A, 0);   
     A = adicionar_elemento(A, 3);
@@ -71,7 +74,7 @@ int main(){
 
     pt = busca(A, 1);
 
-    printf("%d", pt);
+    printf("ponteiro: %p", pt);
 
     destruir_lista(A);
 
